@@ -2,25 +2,25 @@
 
 Package for the transformation, processing and visualisation of molecular data for cheminformatics and machine learning. 
 
-The package is based on RDkit and pandas and allows:
+The package is based on RDkit and pandas, features include:
 
-- Removal of 
+- Removal of missing molecules
 - Removal of duplicate molecules
 - Standardisation of molecular graphs
 - Calculation of molecular descriptors and fingerprints
-
+- Plotting distrubution of molecular descriptors and fingerprints
 
 ## Example
 The package relies on pandas pipe functionality which allow the chaining of functions on a pandas dataframe or series.The 
-example below loads in a csv file, converts the smiles strings to rdkit mol, standardises the mols, removes any duplicates
-and calculates the morgan fingerprints for each molecule.  
+example below loads in a csv file containing smiles strings and converts them to rdkit mols.  The mols are then standardised, duplicates 
+are removed and the morgan fingerprint for each molecule is calculated.
 
 ```python3
 import pandas as pd
 
-rom transformers import start_pipeline, smiles_to_mols
-from processors import remove_duplicates, standardise_mols
-from descriptors import calc_morgan_fp
+from rdkit_utils.transformers import start_pipeline, smiles_to_mols
+from rdkit_utils.processors import remove_duplicates, standardise_mols
+from rdkit_utils.descriptors import calc_morgan_fp
 
 df = pd.read_csv('...')
 
@@ -34,4 +34,4 @@ clean_df = (df
 
 ```
 
-Working in progress...
+Work in progress...
