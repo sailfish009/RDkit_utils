@@ -4,6 +4,8 @@ import numpy as np
 from utils import log
 from utils import morgan_fp
 
+### Descriptors ###
+
 @log
 def calc_morgan_fp(dataframe, column_name, radius = 2, bits = 2048, y = None):
     ''' Calculates the morgan fingerprints for a column of rdkit mols
@@ -21,3 +23,11 @@ def calc_morgan_fp(dataframe, column_name, radius = 2, bits = 2048, y = None):
         return pd.concat([fps, dataframe.loc[:, y]], axis = 1)
     else:
         return fps
+        
+### Fingerprints ###
+
+
+### Mol2Vec ###
+
+
+

@@ -2,6 +2,8 @@ from rdkit import Chem
 from rdkit.Chem.MolStandardize import Standardizer
 from utils import log
 
+### Selectors ###
+
 @log
 def select_columns(dataframe, *args):
     ''' Select the columns of a dataframe and all the rows
@@ -11,6 +13,16 @@ def select_columns(dataframe, *args):
             *args: Column names to be selected 
     '''
     return dataframe.loc[:, [*args]]
+
+@log
+def select_molw_range(dataframe, min_mw, max_mw):
+    pass
+    
+@log
+def select_organic(dataframe):
+    pass
+
+### Removers ###
 
 @log
 def remove_missing_samples(dataframe, column_name):
@@ -58,6 +70,8 @@ def remove_duplicates(dataframe, column_name):
                 return dataframe[-duplicates].reset_index(drop = True, inplace = False)
             else:
                 return dataframe
+
+### Standardiser ###
 
 @log
 def standardise_mols(dataframe, column_name, transformation = 'super_parent'):
